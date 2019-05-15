@@ -1,1 +1,2 @@
 # mobile
+The assignment is made up of two parts. Part 1 is the app including all code and instructions to set up the app on Android studio. All code must be commented and upload as a zip folder. All submissions must be done individually. This means each student needs to submit a separate assignment. Part 2 is a report clearly describing the application and how you have managed versioning. No late submissions will be accepted after the deadline. 24TH MAY FRIDAY 14:00. (taken from VLE)
