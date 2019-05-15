@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation-view">
+
+    <group
+        android:checkableBehavior="single"
+        android:title="Boards">
+        <item
+            android:id="@+id/nav_b"
+            android:title="/b/" />
+        <item
+            android:id="@+id/nav_pol"
+            android:title="/pol/" />
+        <item
+            android:id="@+id/nav_g"
+            android:title="/g/" />
+    </group>
+
+    <item android:title="Boards">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_bx"
+                    android:title="/b/" />
+                <item
+                    android:id="@+id/nav_polx"
+                    android:title="/pol/" />
+                <item
+                    android:id="@+id/nav_gx"
+                    android:title="/g/" />
+            </group>
+        </menu>
+    </item>
+</menu>
