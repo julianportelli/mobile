@@ -16,12 +16,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Message Boards"
+        android:text=" Message Board App"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TESTING"/>
+        android:text=" Julian and Chakotay"
+    />
 
 </LinearLayout>
