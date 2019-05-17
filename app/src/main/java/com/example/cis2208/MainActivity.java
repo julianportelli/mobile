@@ -1,5 +1,6 @@
 package com.example.cis2208;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,15 +11,43 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private static final int PICK_IMAGE_REQUEST = 1;
+
+    private EditText mEditTextPostName;
+    private EditText mEditTextPostDescription;
+    private Button mButtonChooseImage;
+    private Button mButtonUpload;
+    private TextView mTextViewShowUploads;
+    private EditText mEditTextFileName;
+    private ImageView mImageView;
+    private ProgressBar mProgressBar;
+    private Uri mImageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mEditTextPostName = findViewById(R.id.post_title);
+        mEditTextPostDescription = findViewById(R.id.post_description);
+        mButtonChooseImage = findViewById(R.id.post_button_choose_image);
+        mButtonUpload = findViewById(R.id.post_button);
+        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
+        mEditTextFileName = findViewById(R.id.post_image_file_name);
+        mImageView = findViewById(R.id.post_image_view);
+        mProgressBar = findViewById(R.id.progress_bar);
+
+        
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
