@@ -45,8 +45,6 @@ public class PostActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
 
-    private static final String[] boards = {"Choose board", "b", "pol", "g"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,12 +109,12 @@ public class PostActivity extends AppCompatActivity {
     }
 
     private void uploadPost(){
-        if(mImageUri != null){
+        if(mImageUri != null){ //if image actually picked
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
             fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) { //delay reset of progress bar for 5s
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) { //delay reset of progress bar for 500ms
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
@@ -129,7 +127,7 @@ public class PostActivity extends AppCompatActivity {
                             Post post = new Post(mEditTextPostTitle.getText().toString().trim(), mEditTextPostDescription.getText().toString(), mBoardSpinner.getSelectedItem().toString() ,mEditTextImageName.getText().toString().trim(),
                                     taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
                             String postId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(postId).setValue(post);
+                            mDatabaseRef.child("posts").child(postId).setValue(post);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

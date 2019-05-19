@@ -8,22 +8,22 @@ public class Post {
     private String mImageName;
     private String mImageUrl;
 
-   public Post(){
-    //empty constructor needed for Firebase
-   }
+    public Post(){
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+    }
 
     public Post(String PostTitle, String PostDescription, String Board, String ImageName, String ImageUrl){
         if(ImageName.trim().equals(""))
             ImageName = "No image name";
 
-        if(ImageName.trim().equals(""))
-            ImageName = "No post name";
+        if(PostTitle.trim().equals(""))
+            PostTitle = "No post name";
 
-        PostTitle = mPostTitle;
-        PostDescription = mPostDescription;
-        Board = mBoard;
-        ImageName = mImageName;
-        ImageUrl = mImageUrl;
+        mPostTitle = PostTitle;
+        mPostDescription = PostDescription;
+        mBoard  = Board;
+        mImageName = ImageName;
+        mImageUrl = ImageUrl;
     }
 
     public String getmPostTitle() {
