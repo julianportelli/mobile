@@ -32,7 +32,7 @@
     <Spinner
         android:id="@+id/boardSpinner"
         android:layout_width="396dp"
-        android:layout_height="49dp"
+        android:layout_height="38dp"
         android:layout_above="@+id/post_image_view"
         android:layout_below="@+id/post_button_choose_image"
         android:layout_alignParentStart="true"
@@ -44,7 +44,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="17dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown" />
 

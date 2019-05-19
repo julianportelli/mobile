@@ -5,4 +5,9 @@
     <string name="title_activity_new_post">newPostActivity</string>
     <string name="title_activity_test">TEST</string>
     <string name="title_activity_post">PostActivity</string>
+    <string-array name="boards_list">
+        <item>b</item>
+        <item>pol</item>
+        <item>g</item>
+    </string-array>
 </resources>
