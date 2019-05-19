@@ -81,7 +81,7 @@ public class PostActivity extends AppCompatActivity {
         mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showPosts();
             }
         });
     }
@@ -146,5 +146,9 @@ public class PostActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showPosts(){
+        
     }
 }

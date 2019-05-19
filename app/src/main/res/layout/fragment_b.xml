@@ -6,11 +6,18 @@
     android:background="@android:color/white">
 
     <TextView
+        android:id="@+id/b_board_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="/b/ Board"
         android:textSize="20sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_b"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/b_board_name" />
 
 
     <android.support.design.widget.FloatingActionButton
