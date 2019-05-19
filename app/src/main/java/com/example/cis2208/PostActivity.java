@@ -149,6 +149,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
     private void showPosts(){
-        
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

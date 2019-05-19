@@ -8,20 +8,22 @@ public class Post {
     private String mImageName;
     private String mImageUrl;
 
-    public Post(){
+    public Post() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public Post(String PostTitle, String PostDescription, String Board, String ImageName, String ImageUrl){
-        if(ImageName.trim().equals(""))
+    public Post(String PostTitle, String PostDescription, String Board, String ImageName, String ImageUrl) {
+        if (ImageName.trim().equals("")) {
             ImageName = "No image name";
+        }
 
-        if(PostTitle.trim().equals(""))
+        if (PostTitle.trim().equals("")) {
             PostTitle = "No post name";
+        }
 
         mPostTitle = PostTitle;
         mPostDescription = PostDescription;
-        mBoard  = Board;
+        mBoard = Board;
         mImageName = ImageName;
         mImageUrl = ImageUrl;
     }
@@ -65,8 +67,6 @@ public class Post {
     public void setmImageUrl(String mImageUrl) {
         this.mImageUrl = mImageUrl;
     }
-
-
 
 
 }
