@@ -2,4 +2,7 @@
     <string name="app_name">CIS2208</string>
     <string name="navigation_drawer_open">Close navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_new_post">newPostActivity</string>
+    <string name="title_activity_test">TEST</string>
+    <string name="title_activity_post">PostActivity</string>
 </resources>
