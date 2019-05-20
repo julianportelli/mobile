@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostsActivity extends AppCompatActivity {
+public class PostsActivity extends AppCompatActivity implements PostAdapter.OnItemClickListener {
 
     private RecyclerView mRecyclerview;
     private PostAdapter mAdapter;
@@ -52,6 +52,9 @@ public class PostsActivity extends AppCompatActivity {
 
                 mAdapter = new PostAdapter(PostsActivity.this, mPosts);
                 mRecyclerview.setAdapter(mAdapter);
+
+                mAdapter.setOnItemClickListener(PostsActivity.this);
+
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
@@ -61,5 +64,20 @@ public class PostsActivity extends AppCompatActivity {
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onWhatEverClick(int position) {
+        Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        Toast.makeText(this, "Delete click at position: " + position, Toast.LENGTH_SHORT).show();
     }
 }
