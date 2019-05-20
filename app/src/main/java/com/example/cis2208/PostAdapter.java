@@ -17,8 +17,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     private Context mContext;
     private List<Post> mPosts;
 
-    public PostAdapter(){}
-
     public PostAdapter(Context context, List<Post> posts){
         mContext = context;
         mPosts = posts;
@@ -38,6 +36,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.TextViewPostDescription.setText(postCurrent.getmPostDescription());
         Picasso.get()
                 .load(postCurrent.getmImageUrl())
+                .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.ImageViewPostImage);

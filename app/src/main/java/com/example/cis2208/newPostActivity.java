@@ -3,8 +3,6 @@ package com.example.cis2208;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -38,14 +36,14 @@ public class newPostActivity extends AppCompatActivity { //??? don't use for now
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        mEditTextPostName = findViewById(R.id.post_title);
-        mEditTextPostDescription = findViewById(R.id.post_description);
-        mButtonChooseImage = findViewById(R.id.post_button_choose_image);
-        mButtonPost = findViewById(R.id.post_button);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
+        mEditTextPostName = findViewById(R.id.post_titleX);
+        mEditTextPostDescription = findViewById(R.id.post_descriptionX);
+        mButtonChooseImage = findViewById(R.id.post_button_choose_imageX);
+        mButtonPost = findViewById(R.id.post_buttonX);
+        mTextViewShowUploads = findViewById(R.id.text_view_show_uploadsX);
         mEditTextFileName = findViewById(R.id.post_image_file_name);
-        mImageView = findViewById(R.id.post_image_view);
-        mProgressBar = findViewById(R.id.progress_bar);
+        mImageView = findViewById(R.id.post_image_viewX);
+        mProgressBar = findViewById(R.id.progress_barX);
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override

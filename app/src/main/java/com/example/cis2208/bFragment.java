@@ -58,7 +58,7 @@ public class bFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     Post post = dsp.getValue(Post.class);
-                    Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
                     mPosts.add(post);
                 }
                 mAdapter = new PostAdapter(getActivity(), mPosts);

@@ -6,16 +6,16 @@
     android:padding="14dp">
 
     <EditText
-        android:id="@+id/post_title"
+        android:id="@+id/post_titleX"
         android:layout_width="386dp"
         android:layout_height="wrap_content"
         android:hint="Post Title" />
 
     <EditText
-        android:id="@+id/post_description"
+        android:id="@+id/post_descriptionX"
         android:layout_width="396dp"
         android:layout_height="225dp"
-        android:layout_below="@+id/post_title"
+        android:layout_below="@+id/post_titleX"
         android:hint="Describe your post..."
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -31,11 +31,11 @@
         android:inputType="text|textMultiLine" />
 
     <Spinner
-        android:id="@+id/boardSpinner"
+        android:id="@+id/boardSpinnerX"
         android:layout_width="393dp"
         android:layout_height="51dp"
-        android:layout_above="@+id/post_image_view"
-        android:layout_below="@+id/post_button_choose_image"
+        android:layout_above="@+id/post_image_viewX"
+        android:layout_below="@+id/post_button_choose_imageX"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
@@ -51,7 +51,7 @@
         android:entries="@array/boards_list"/>
 
     <Button
-        android:id="@+id/post_button_choose_image"
+        android:id="@+id/post_button_choose_imageX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="285dp"
@@ -59,37 +59,37 @@
         android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/post_image_name"
+        android:id="@+id/post_image_nameX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/post_button_choose_image"
+        android:layout_alignBottom="@+id/post_button_choose_imageX"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="0dp"
-        android:layout_toEndOf="@+id/post_button_choose_image"
-        android:layout_toRightOf="@+id/post_button_choose_image"
+        android:layout_toEndOf="@+id/post_button_choose_imageX"
+        android:layout_toRightOf="@+id/post_button_choose_imageX"
         android:hint="Enter file name" />
 
     <ImageView
-        android:id="@+id/post_image_view"
+        android:id="@+id/post_image_viewX"
         android:layout_width="381dp"
         android:layout_height="220dp"
-        android:layout_above="@id/post_button"
+        android:layout_above="@id/post_buttonX"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="38dp" />
 
     <ProgressBar
-        android:id="@+id/progress_bar"
+        android:id="@+id/progress_barX"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/post_button"
+        android:layout_above="@+id/post_buttonX"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/post_button"
+        android:id="@+id/post_buttonX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -97,17 +97,17 @@
         android:text="Post" />
 
     <TextView
-        android:id="@+id/text_view_show_uploads"
+        android:id="@+id/text_view_show_uploadsX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/post_button"
-        android:layout_alignBottom="@+id/post_button"
+        android:layout_alignBaseline="@+id/post_buttonX"
+        android:layout_alignBottom="@+id/post_buttonX"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_toEndOf="@+id/post_button"
-        android:layout_toRightOf="@+id/post_button"
+        android:layout_toEndOf="@+id/post_buttonX"
+        android:layout_toRightOf="@+id/post_buttonX"
         android:gravity="center"
-        android:text="Show Uploads"
+        android:text="Show All Uploads"
         android:textSize="16sp" />
 
 </RelativeLayout>

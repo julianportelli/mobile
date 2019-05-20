@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -49,18 +51,18 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        mEditTextPostTitle = findViewById(R.id.post_title);
-        mEditTextPostDescription = findViewById(R.id.post_description);
-        mBoardSpinner = findViewById(R.id.boardSpinner);
-        mButtonChooseImage = findViewById(R.id.post_button_choose_image);
-        mEditTextImageName = findViewById(R.id.post_image_name);
-        mButtonPost = findViewById(R.id.post_button);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mImageView = findViewById(R.id.post_image_view);
-        mProgressBar = findViewById(R.id.progress_bar);
+        mEditTextPostTitle = findViewById(R.id.post_titleX);
+        mEditTextPostDescription = findViewById(R.id.post_descriptionX);
+        mBoardSpinner = findViewById(R.id.boardSpinnerX);
+        mButtonChooseImage = findViewById(R.id.post_button_choose_imageX);
+        mEditTextImageName = findViewById(R.id.post_image_nameX);
+        mButtonPost = findViewById(R.id.post_buttonX);
+        mTextViewShowUploads = findViewById(R.id.text_view_show_uploadsX);
+        mImageView = findViewById(R.id.post_image_viewX);
+        mProgressBar = findViewById(R.id.progress_barX);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("posts");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("posts");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +114,9 @@ public class PostActivity extends AppCompatActivity {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
             fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                        private static final String TAG ="Posts Activity";
+
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) { //delay reset of progress bar for 500ms
                             Handler handler = new Handler();
@@ -123,8 +128,19 @@ public class PostActivity extends AppCompatActivity {
                             }, 500);
 
                             Toast.makeText(PostActivity.this, "Upload Successful!", Toast.LENGTH_LONG).show();
-                            Post post = new Post(mEditTextPostTitle.getText().toString().trim(), mEditTextPostDescription.getText().toString(), mBoardSpinner.getSelectedItem().toString() ,mEditTextImageName.getText().toString().trim(),
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+
+                            Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                            while(!uriTask.isSuccessful());
+                            Uri downloadUrl = uriTask.getResult();
+
+                            Log.d(TAG, "onSuccess: firebase download url: " + downloadUrl.toString());
+
+                            Post post = new Post(
+                                    mEditTextPostTitle.getText().toString().trim(),
+                                    mEditTextPostDescription.getText().toString(),
+                                    mBoardSpinner.getSelectedItem().toString(),
+                                    mEditTextImageName.getText().toString().trim(),
+                                    downloadUrl.toString());
                             String postId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child("posts").child(postId).setValue(post);
                         }
