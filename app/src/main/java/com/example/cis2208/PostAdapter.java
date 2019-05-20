@@ -17,6 +17,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     private Context mContext;
     private List<Post> mPosts;
 
+    public PostAdapter(){}
+
     public PostAdapter(Context context, List<Post> posts){
         mContext = context;
         mPosts = posts;
@@ -56,10 +58,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         public PostViewHolder(View itemView){
             super(itemView);
 
-            TextViewPostTitle = itemView.findViewById(R.id.text_view_post_title);
-            ImageViewPostImage = itemView.findViewById(R.id.image_view_post_image);
-            TextViewPostImageName = itemView.findViewById(R.id.text_view_post_image_name);
-            TextViewPostDescription = itemView.findViewById(R.id.text_view_post_description);
+            TextViewPostTitle = itemView.findViewById(R.id.text_view_post_titleX);
+            ImageViewPostImage = itemView.findViewById(R.id.image_view_post_imageX);
+            TextViewPostImageName = itemView.findViewById(R.id.text_view_post_image_nameX);
+            TextViewPostDescription = itemView.findViewById(R.id.text_view_post_descriptionX);
         }
     }
 }

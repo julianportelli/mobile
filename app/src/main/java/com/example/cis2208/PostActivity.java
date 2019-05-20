@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -70,7 +69,7 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-        mButtonPost.setOnClickListener(new View.OnClickListener() {
+        mButtonPost.setOnClickListener(new View.OnClickListener() { //upload post
             @Override
             public void onClick(View v) {
                 uploadPost();
@@ -81,7 +80,7 @@ public class PostActivity extends AppCompatActivity {
         mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPosts();
+                openPostsActivity();
             }
         });
     }
@@ -148,8 +147,8 @@ public class PostActivity extends AppCompatActivity {
         }
     }
 
-    private void showPosts(){
-        Intent intent = new Intent(this, MainActivity.class);
+    private void openPostsActivity(){
+        Intent intent = new Intent(this, PostsActivity.class);
         startActivity(intent);
     }
 }

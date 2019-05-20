@@ -28,9 +28,7 @@ public class bFragment extends Fragment {
     FloatingActionButton newPostBtn;
 
     private RecyclerView mRecyclerView;
-
     private PostAdapter mAdapter;
-
     private DatabaseReference mDatabaseRef;
     private List<Post> mPosts;
 
@@ -47,30 +45,20 @@ public class bFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        newPostBtn = view.findViewById(R.id.newPostButton);
-        newPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNewPostActivity();
-            }
-        });
-
-
-
-
         mRecyclerView = view.findViewById(R.id.recycler_b);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mPosts = new ArrayList<>();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("posts");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("posts");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    Post post = postSnapshot.getValue(Post.class);
+                for(DataSnapshot dsp : dataSnapshot.getChildren()){
+                    Post post = dsp.getValue(Post.class);
+                    Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
                     mPosts.add(post);
                 }
                 mAdapter = new PostAdapter(getActivity(), mPosts);
@@ -83,6 +71,13 @@ public class bFragment extends Fragment {
             }
         });
 
+        newPostBtn = view.findViewById(R.id.newPostButton);
+        newPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewPostActivity();
+            }
+        });
     }
 
     public void openNewPostActivity(){
