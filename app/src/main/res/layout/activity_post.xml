@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/PostActivity"
-    android:padding="14dp">
+    android:padding="14dp"
+    >
 
     <EditText
         android:id="@+id/post_titleX"
@@ -98,12 +99,15 @@
 
     <TextView
         android:id="@+id/text_view_show_uploadsX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="142dp"
+        android:layout_height="79dp"
+        android:layout_below="@+id/progress_barX"
         android:layout_alignBaseline="@+id/post_buttonX"
         android:layout_alignBottom="@+id/post_buttonX"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="4dp"
         android:layout_toEndOf="@+id/post_buttonX"
         android:layout_toRightOf="@+id/post_buttonX"
         android:gravity="center"
