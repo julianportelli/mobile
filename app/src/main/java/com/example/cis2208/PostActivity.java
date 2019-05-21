@@ -50,6 +50,7 @@ public class PostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+        PostActivity.this.setTitle("New Post");
 
         mEditTextPostTitle = findViewById(R.id.post_titleX);
         mEditTextPostDescription = findViewById(R.id.post_descriptionX);

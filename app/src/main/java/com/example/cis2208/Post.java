@@ -1,5 +1,7 @@
 package com.example.cis2208;
 
+import com.google.firebase.database.Exclude;
+
 public class Post {
 
     private String mPostTitle;
@@ -7,6 +9,8 @@ public class Post {
     private String mBoard;
     private String mImageName;
     private String mImageUrl;
+    private String mKey;
+
 
     public Post() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -67,6 +71,16 @@ public class Post {
     public void setmImageUrl(String mImageUrl) {
         this.mImageUrl = mImageUrl;
     }
+
+    @Exclude
+    public String getmKey() { //excluded from DB
+        return mKey;
+    }
+
+    public void setmKey(String key) {
+        mKey = key;
+    }
+
 
 
 }
