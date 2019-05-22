@@ -23,6 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+// Fragment for the /b/ board
+
 public class bFragment extends Fragment {
 
     FloatingActionButton newPostBtn;

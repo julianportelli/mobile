@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+// Fragment for the /pol/ board
+
 public class polFragment extends Fragment {
 
     FloatingActionButton newPostBtn;

@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+// Fragment for the /g/ board
+
 public class gFragment extends Fragment {
 
     FloatingActionButton newPostBtn;
