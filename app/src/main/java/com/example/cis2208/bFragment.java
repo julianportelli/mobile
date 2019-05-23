@@ -38,7 +38,6 @@ public class bFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_b, container, false);
-
     return view;
     }
 
@@ -60,6 +59,7 @@ public class bFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     Post post = dsp.getValue(Post.class);
+
                     //Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
                     mPosts.add(post);
                 }
