@@ -66,8 +66,10 @@ public class polFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     Post post = dsp.getValue(Post.class);
+                    if(post.getmBoard().equalsIgnoreCase("pol")){
+                        mPosts.add(post);
+                    }
                     //Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
-                    mPosts.add(post);
                 }
                 mAdapter = new PostAdapter(getActivity(), mPosts);
                 mRecyclerView.setAdapter(mAdapter);
