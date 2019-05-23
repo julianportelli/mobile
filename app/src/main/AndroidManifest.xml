@@ -14,10 +14,6 @@
         <activity android:name=".PostsActivity"></activity>
         <activity android:name=".PostActivity" />
         <activity
-            android:name=".newPostActivity"
-            android:label="@string/title_activity_new_post"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
