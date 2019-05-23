@@ -92,6 +92,7 @@ public class polFragment extends Fragment {
 
     public void openNewPostActivity(){
         Intent intent = new Intent(getActivity(), PostActivity.class);
+        intent.putExtra("caller", "polFragement");
         startActivity(intent);
     }
 }

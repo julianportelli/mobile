@@ -136,10 +136,26 @@ public class PostActivity extends AppCompatActivity {
 
                             Log.d(TAG, "onSuccess: firebase download url: " + downloadUrl.toString());
 
+                            // Make a new post by detecting which fragment it is coming from
+                            String caller = getIntent().getStringExtra("caller");
+                            String ToChange = "";
+                            if(caller.equals("polFragment")){
+                                // do something
+                                ToChange = "pol";
+                            }
+                            if (caller.equals("gFragment")){
+                                // do something
+                                ToChange = "g";
+                            }
+                            if (caller.equals("bFragment")){
+                                //do something
+                                ToChange = "b";
+                            }
+
                             Post post = new Post(
                                     mEditTextPostTitle.getText().toString().trim(),
                                     mEditTextPostDescription.getText().toString(),
-                                    mBoardSpinner.getSelectedItem().toString(),
+                                    ToChange,
                                     mEditTextImageName.getText().toString().trim(),
                                     downloadUrl.toString());
                             String postId = mDatabaseRef.push().getKey();
