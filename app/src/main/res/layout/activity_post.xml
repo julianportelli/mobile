@@ -9,22 +9,20 @@
         android:id="@+id/post_titleX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
         android:hint="Post Title" />
 
     <EditText
         android:id="@+id/post_descriptionX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/post_titleX"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_width="381dp"
+        android:layout_height="83dp"
+        android:layout_below="@id/post_titleX"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="-10dp"
+        android:layout_marginRight="-10dp"
         android:gravity="center"
         android:hint="Describe your post..."
         android:inputType="text|textMultiLine" />
@@ -33,49 +31,45 @@
         android:id="@+id/post_button_choose_imageX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="285dp"
+        android:layout_below="@+id/post_descriptionX"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_toStartOf="@+id/post_image_nameX"
+        android:layout_toLeftOf="@+id/post_image_nameX"
         android:text="Choose file"
         android:textSize="12dp" />
 
     <EditText
         android:id="@+id/post_image_nameX"
-        android:layout_width="match_parent"
+        android:layout_width="226dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/post_button_choose_imageX"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toEndOf="@+id/post_button_choose_imageX"
-        android:layout_toRightOf="@+id/post_button_choose_imageX"
+        android:layout_below="@+id/post_descriptionX"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:hint="Enter file name" />
 
     <Spinner
         android:id="@+id/boardSpinnerX"
         android:layout_width="393dp"
         android:layout_height="51dp"
-        android:layout_above="@+id/post_image_viewX"
-        android:layout_below="@+id/post_button_choose_imageX"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="6dp"
+        android:layout_below="@+id/post_image_nameX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:background="@android:drawable/btn_dropdown"
         android:entries="@array/boards_list"
         android:spinnerMode="dropdown" />
 
     <ImageView
         android:id="@+id/post_image_viewX"
-        android:layout_width="381dp"
-        android:layout_height="220dp"
-        android:layout_above="@id/post_buttonX"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginBottom="38dp" />
+        android:layout_width="380dp"
+        android:layout_height="160dp"
+        android:layout_above="@id/progress_barX"
+        android:layout_below="@+id/boardSpinnerX"
+        android:layout_marginBottom="7dp" />
 
     <ProgressBar
         android:id="@+id/progress_barX"
@@ -85,31 +79,39 @@
         android:layout_above="@+id/post_buttonX"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:id="@+id/post_buttonX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Post" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="1dp" />
 
     <TextView
         android:id="@+id/text_view_show_uploadsX"
-        android:layout_width="142dp"
-        android:layout_height="79dp"
-        android:layout_below="@+id/progress_barX"
-        android:layout_alignBaseline="@+id/post_buttonX"
-        android:layout_alignBottom="@+id/post_buttonX"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="4dp"
-        android:layout_toEndOf="@+id/post_buttonX"
-        android:layout_toRightOf="@+id/post_buttonX"
+        android:layout_width="383dp"
+        android:layout_height="37dp"
+        android:layout_below="@id/progress_barX"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="63dp"
         android:gravity="center"
         android:text="Show All Uploads"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/post_buttonX"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="186dp"
+        android:text="Post" />
 </RelativeLayout>
