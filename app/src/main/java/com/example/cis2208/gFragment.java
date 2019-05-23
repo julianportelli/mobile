@@ -91,7 +91,7 @@ public class gFragment extends Fragment {
     }
 
     public void openNewPostActivity(){
-        Intent intent = new Intent(getActivity(), PostActivity.class);
+        Intent intent = new Intent(getActivity(), gPostActivity.class);
         intent.putExtra("caller", "gFragement");
         startActivity(intent);
     }
