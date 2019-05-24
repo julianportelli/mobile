@@ -34,7 +34,6 @@ public class polPostActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private EditText mEditTextPostTitle;
     private EditText mEditTextPostDescription;
-    private Spinner mBoardSpinner;
     private Button mButtonChooseImage;
     private EditText mEditTextImageName;
     private Button mButtonPost;
@@ -54,7 +53,6 @@ public class polPostActivity extends AppCompatActivity {
 
         mEditTextPostTitle = findViewById(R.id.post_titleX);
         mEditTextPostDescription = findViewById(R.id.post_descriptionX);
-        mBoardSpinner = findViewById(R.id.boardSpinnerX);
         mButtonChooseImage = findViewById(R.id.post_button_choose_imageX);
         mEditTextImageName = findViewById(R.id.post_image_nameX);
         mButtonPost = findViewById(R.id.post_buttonX);
