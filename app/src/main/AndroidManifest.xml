@@ -15,7 +15,6 @@
         <activity android:name=".polPostActivity" />
         <activity android:name=".bPostActivity" />
         <activity android:name=".PostsActivity" />
-        <activity android:name=".PostActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
