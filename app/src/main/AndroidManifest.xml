@@ -17,7 +17,6 @@
         <activity android:name=".bPostsActivity" />
         <activity android:name=".polPostsActivity" />
         <activity android:name=".gPostsActivity" />
-        <activity android:name=".PostsActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

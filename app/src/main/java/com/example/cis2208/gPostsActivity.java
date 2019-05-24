@@ -60,7 +60,7 @@ public class gPostsActivity extends AppCompatActivity implements PostAdapter.OnI
                 mPosts.clear();
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Post post = ds.getValue(Post.class);
-                    if(post.getmBoard().equalsIgnoreCase("pol")){
+                    if(post.getmBoard().equalsIgnoreCase("g")){
                         post.setmKey(ds.getKey());
                         mPosts.add(post);
                     }
