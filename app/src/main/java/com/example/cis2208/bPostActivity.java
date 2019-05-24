@@ -136,14 +136,10 @@ public class bPostActivity extends AppCompatActivity {
 
                             Log.d(TAG, "onSuccess: firebase download url: " + downloadUrl.toString());
 
-                            // Make a new post by detecting which fragment it is coming from
-                            String caller = getIntent().getStringExtra("caller");
-                            String ToChange = "b";
-
                             Post post = new Post(
                                     mEditTextPostTitle.getText().toString().trim(),
                                     mEditTextPostDescription.getText().toString(),
-                                    ToChange,
+                                    "b",
                                     mEditTextImageName.getText().toString().trim(),
                                     downloadUrl.toString());
                             String postId = mDatabaseRef.push().getKey();

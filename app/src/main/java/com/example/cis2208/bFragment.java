@@ -85,7 +85,6 @@ public class bFragment extends Fragment {
 
     public void openNewPostActivity(){
         Intent intent = new Intent(getActivity(), bPostActivity.class);
-        intent.putExtra("caller", "bFragement");
         startActivity(intent);
     }
 }
