@@ -165,7 +165,7 @@ public class bPostActivity extends AppCompatActivity {
     }
 
     private void openPostsActivity(){
-        Intent intent = new Intent(this, PostsActivity.class);
+        Intent intent = new Intent(this, bPostsActivity.class);
         startActivity(intent);
     }
 }

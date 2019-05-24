@@ -165,7 +165,7 @@ public class gPostActivity extends AppCompatActivity {
     }
 
     private void openPostsActivity(){
-        Intent intent = new Intent(this, PostsActivity.class);
+        Intent intent = new Intent(this, gPostsActivity.class);
         startActivity(intent);
     }
 }
