@@ -85,10 +85,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Select Action");
-            MenuItem doWhatever = menu.add(Menu.NONE, 1, 1, "Do whatever");
-            MenuItem delete = menu.add(Menu.NONE, 2, 2, "Delete post");
-
-            doWhatever.setOnMenuItemClickListener(this);
+            MenuItem delete = menu.add(Menu.NONE, 1, 1, "Delete post");
             delete.setOnMenuItemClickListener(this);
         }
 
@@ -99,9 +96,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                 if(position != RecyclerView.NO_POSITION){
                     switch (item.getItemId()){
                         case 1:
-                            mListener.onWhatEverClick(position);
-                            return true;
-                        case 2:
                             mListener.onDeleteClick(position);
                             return true;
                     }
@@ -113,8 +107,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     public interface OnItemClickListener{
         void onItemClick(int position);
-
-        void onWhatEverClick(int position);
 
         void onDeleteClick(int position);
     }

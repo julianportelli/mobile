@@ -84,11 +84,6 @@ public class gPostsActivity extends AppCompatActivity implements PostAdapter.OnI
     }
 
     @Override
-    public void onWhatEverClick(int position) {
-        Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onDeleteClick(int position) {
         Post selectedPost = mPosts.get(position); //get post at clicked position
         final String selectedKey = selectedPost.getmKey();
