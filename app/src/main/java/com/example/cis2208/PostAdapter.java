@@ -77,7 +77,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             if(mListener != null){
                 int position = getAdapterPosition();
                 if(position != RecyclerView.NO_POSITION){
-                    mListener.onItemClick(position);
+                    // Do nothing
                 }
             }
         }
@@ -106,8 +106,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     }
 
     public interface OnItemClickListener{
-        void onItemClick(int position);
-
         void onDeleteClick(int position);
     }
 
