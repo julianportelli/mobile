@@ -37,15 +37,6 @@ public class gFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_g, container, false);
-        /*
-        newPostBtn = view.findViewById(R.id.newPostButton);
-        newPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNewPostActivity();
-            }
-        });
-        */
         return view;
     }
 
@@ -59,20 +50,19 @@ public class gFragment extends Fragment {
 
         mPosts = new ArrayList<>();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("posts");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("posts"); //find correct 'table' in database where to store posts
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) { //lists posts in order that they were created, based on the name of the board
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     Post post = dsp.getValue(Post.class);
                     if(post.getmBoard().equalsIgnoreCase("g")){
                         mPosts.add(post);
                     }
-                    //Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
                 }
                 mAdapter = new PostAdapter(getActivity(), mPosts);
-                mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView.setAdapter(mAdapter); //display the posts
             }
 
             @Override
@@ -81,6 +71,7 @@ public class gFragment extends Fragment {
             }
         });
 
+        //Button which opens the posts activity to add a new post
         newPostBtn = view.findViewById(R.id.newPostButton);
         newPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override

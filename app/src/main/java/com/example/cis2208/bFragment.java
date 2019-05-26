@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -38,9 +37,8 @@ public class bFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_b, container, false);
-    return view;
+        return view;
     }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -52,20 +50,19 @@ public class bFragment extends Fragment {
 
         mPosts = new ArrayList<>();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("posts");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("posts"); //find correct 'table' in database where to store posts
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) { //lists posts in order that they were created, based on the name of the board
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     Post post = dsp.getValue(Post.class);
                     if(post.getmBoard().equalsIgnoreCase("b")){
                         mPosts.add(post);
                     }
-                    //Toast.makeText(getActivity(),  dsp.getValue(Post.class).toString(), Toast.LENGTH_SHORT).show();
                 }
                 mAdapter = new PostAdapter(getActivity(), mPosts);
-                mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView.setAdapter(mAdapter); //display the posts
             }
 
             @Override
@@ -74,6 +71,7 @@ public class bFragment extends Fragment {
             }
         });
 
+        //Button which opens the posts activity to add a new post
         newPostBtn = view.findViewById(R.id.newPostButton);
         newPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
