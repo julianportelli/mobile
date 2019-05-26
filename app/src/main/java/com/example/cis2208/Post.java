@@ -2,6 +2,8 @@ package com.example.cis2208;
 
 import com.google.firebase.database.Exclude;
 
+// The model used for the posts with its getters and setters to be used by other classes.
+
 public class Post {
 
     private String mPostTitle;
