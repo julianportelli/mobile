@@ -33,6 +33,7 @@ public class bPostsActivity extends AppCompatActivity implements PostAdapter.OnI
     private ValueEventListener mDBListener;
     private List<Post> mPosts;
 
+    // Method to create all of the instances
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +56,11 @@ public class bPostsActivity extends AppCompatActivity implements PostAdapter.OnI
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("posts");
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            // Detect from the database if the data has changed
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mPosts.clear();
+                // Loop to display all of the posts which are of board /b/
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Post post = ds.getValue(Post.class);
                     if(post.getmBoard().equalsIgnoreCase("b")){
@@ -66,10 +69,12 @@ public class bPostsActivity extends AppCompatActivity implements PostAdapter.OnI
                     }
                 }
 
+                // Inform the database that is has been changed
                 mAdapter.notifyDataSetChanged();
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
+            // Display error in Toast if it fails
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(bPostsActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
@@ -78,11 +83,13 @@ public class bPostsActivity extends AppCompatActivity implements PostAdapter.OnI
         });
     }
 
+    // Activates the deletion method to remove a specific post
     @Override
     public void onDeleteClick(int position) {
         Post selectedPost = mPosts.get(position); //get post at clicked position
         final String selectedKey = selectedPost.getmKey();
         StorageReference imageRef = mStorage.getReferenceFromUrl(selectedPost.getmImageUrl());
+        // On successful deletion list post a Toast notification method
         imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

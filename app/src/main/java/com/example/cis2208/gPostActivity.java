@@ -45,12 +45,14 @@ public class gPostActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
 
+    // Method that creates the form to add additional posts
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
         gPostActivity.this.setTitle("New Post");
 
+        // Attributes to be displayed
         mEditTextPostTitle = findViewById(R.id.post_titleX);
         mEditTextPostDescription = findViewById(R.id.post_descriptionX);
         mButtonChooseImage = findViewById(R.id.post_button_choose_imageX);
@@ -70,13 +72,13 @@ public class gPostActivity extends AppCompatActivity {
             }
         });
 
+        // Detects the upload post button
         mButtonPost.setOnClickListener(new View.OnClickListener() { //upload post
             @Override
             public void onClick(View v) {
                 uploadPost();
             }
         });
-
 
         mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +88,7 @@ public class gPostActivity extends AppCompatActivity {
         });
     }
 
+    // File Choose that allows the user to pick the image from gallery
     private void openFileChooser(){
         Intent intent = new Intent();
         intent.setType("image/*"); //only images in file chooser
@@ -102,7 +105,7 @@ public class gPostActivity extends AppCompatActivity {
         }
     }
 
-    private String getFileExtension(Uri uri){ //get extension from image ilfe
+    private String getFileExtension(Uri uri){ //get extension from image file
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
@@ -116,6 +119,7 @@ public class gPostActivity extends AppCompatActivity {
 
                         private static final String TAG ="Posts Activity";
 
+                        // A successful upload
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) { //delay reset of progress bar for 500ms
                             Handler handler = new Handler();
@@ -134,6 +138,7 @@ public class gPostActivity extends AppCompatActivity {
 
                             Log.d(TAG, "onSuccess: firebase download url: " + downloadUrl.toString());
 
+                            // Create the post for the /b/ board
                             Post post = new Post(
                                     mEditTextPostTitle.getText().toString().trim(),
                                     mEditTextPostDescription.getText().toString(),
@@ -158,10 +163,12 @@ public class gPostActivity extends AppCompatActivity {
                         }
                     });
         }else{
+            // Each posts needs an image
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
 
+    // Additional button to view and be able to delete the posts
     private void openPostsActivity(){
         Intent intent = new Intent(this, gPostsActivity.class);
         startActivity(intent);
