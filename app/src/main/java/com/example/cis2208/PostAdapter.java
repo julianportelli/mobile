@@ -15,7 +15,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> { //pass data to fragment
+//Where we have a recycleview, we must have a recycleview adapter, which is our bridge between our data and the recyclerview itself
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
     private Context mContext;
     private List<Post> mPosts;
@@ -39,6 +40,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.TextViewPostTitle.setText(postCurrent.getmPostTitle());
         holder.TextViewPostImageName.setText(postCurrent.getmImageName());
         holder.TextViewPostDescription.setText(postCurrent.getmPostDescription());
+        //load image from URL
         Picasso.get()
                 .load(postCurrent.getmImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -52,7 +54,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         return mPosts.size();
     }
 
-    public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
+    public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, //post functionality
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
 
         public TextView TextViewPostTitle;
@@ -83,14 +85,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         }
 
         @Override
-        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) { //Context menu display when post is long tapped
             menu.setHeaderTitle("Select Action");
             MenuItem delete = menu.add(Menu.NONE, 1, 1, "Delete post");
             delete.setOnMenuItemClickListener(this);
         }
 
         @Override
-        public boolean onMenuItemClick(MenuItem item) {
+        public boolean onMenuItemClick(MenuItem item) { //method to delete post
             if(mListener != null){
                 int position = getAdapterPosition();
                 if(position != RecyclerView.NO_POSITION){
